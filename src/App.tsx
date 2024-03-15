@@ -5,6 +5,7 @@ import Add from "./components/Add";
 import List from "./components/List";
 import { useAppDispatch } from './store/store';
 import { fetchPerson } from './store/features/personSlice';
+import ReactHook from "./components/ReactHook"
 
 function App() {
   const dispatch = useAppDispatch()
@@ -16,6 +17,7 @@ function App() {
       Learn React
       <Add />
       <List />
+      <ReactHook/>
       {/* <Products /> */}
       {/* <Cart /> */}
     </div>

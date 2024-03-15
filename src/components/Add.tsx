@@ -1,6 +1,10 @@
 import React, { useState } from "react";
-import { addPerson, savePerson } from "../store/features/personSlice";
+import {savePerson } from "../store/features/personSlice";
 import { useAppDispatch } from "../store/store";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
 
 const Add = () => {
     const [name, setName] = useState('')
@@ -10,20 +14,18 @@ const Add = () => {
         setName('')
     }
     return (
-      <div className="border rounded-md p-2 shadow-md m-2">
-        <label htmlFor="">Person Name:</label>
-        <input
-          className="border rounded-md p-2 mx-2"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <button
-          onClick={() => AddPerson()}
-          className="bg-violet-500  text-white rounded-md px-4 py-2 cursor-pointer hover:bg-violet-600 active:bg-violet-700"
-        >
-          Add
-        </button>
-      </div>
+      <Box
+        component="form"
+        sx={{
+          '& > :not(style)': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+         <TextField id="outlined-basic" label="Person Name" variant="outlined" value={name} onChange={(e) => setName(e.target.value)} />
+         <Button variant="contained" onClick={() => AddPerson()}>Add</Button>
+
+      </Box>
     );
 }
 
